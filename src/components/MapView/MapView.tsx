@@ -1,8 +1,17 @@
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
 import styles from "./MapView.module.css";
 import "leaflet/dist/leaflet.css";
 import { LatLngExpression } from "leaflet";
 import Markers from "../Markers/Markers";
+import { useState } from "react";
+import LocationMarker from "../LocationMarker/LocationMarker";
 
 const MapView = () => {
   const defaultCoordinates: LatLngExpression | undefined = [
@@ -16,6 +25,7 @@ const MapView = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Markers />
+      <LocationMarker />
     </MapContainer>
   );
 };
